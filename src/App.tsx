@@ -14,6 +14,7 @@ function App() {
       <StoreContainer.Provider>
         <Layout className="App">
           <Switch>
+            <Route exact path={'/covid19'} component={MapComponent} />
             <Route exact path={'/'} component={MapComponent} />
             <Route exact path={'/stats'} component={HomeComponent} />
             <Route exact path={'/main'} component={MainComponent} />
