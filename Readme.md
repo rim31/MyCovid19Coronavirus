@@ -1,4 +1,4 @@
-# my COVID-19 Tracker
+# my COVID-19 Tracker : https://rim31.github.io/covid19/
 
 ![](./2.png)
 
