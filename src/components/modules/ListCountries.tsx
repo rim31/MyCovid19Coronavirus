@@ -15,9 +15,9 @@ export default function ListCountries(props: any) {
     const value = event.currentTarget.dataset.name.toLowerCase();
     // console.log(value)
     setCountry(value);
-    setCode(event.currentTarget.dataset.code.toLowerCase());
+    setCode(event.currentTarget.dataset.code.toUpperCase());
     unstated.setCountry(value);
-    unstated.setCode(event.currentTarget.dataset.code.toLowerCase());
+    unstated.setCode(event.currentTarget.dataset.code.toUpperCase());
   }
 
   // to sort array according attribute of object inside
