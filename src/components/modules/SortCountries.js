@@ -19,20 +19,3 @@ export default function SortCountries(key, order = 'asc') {
     );
   };
 }
-
-// use it : 
-
-    // array is sorted by TotalConfirmed, in ascending order by default
-    // setData((data).sort(compareValues('TotalConfirmed')));
-    // (data).sort(compareValues('TotalConfirmed', 'desc'));
-    // // array is sorted by TotalConfirmed in descending order
-    // (data).sort(compareValues('TotalConfirmed', 'desc'));
-    // // array is sorted by Country name in ascending order
-    // (data).sort(compareValues('Country'));
-    // // array is sorted by Country name in descending order
-    // (data).sort(compareValues('Country', 'desc'));
-
-    // ('list countries', props.data.Countries)
-    // _.filter(props.data.Countries, function (i: any) {
-    //   return i.CountryCode === unstated.code.toUpperCase();
-    // });

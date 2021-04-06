@@ -21,6 +21,9 @@ interface ITable {
   TotalDeaths: number,
   TotalRecovered: number,
 }
+
+
+// table Component of infected Data : for the left side bar
 export default function TableCasesData(props: any) {
   const unstated = StoreContainer.useContainer();
   // const [table, setTable] = React.useState<ITable | object>({})
@@ -43,6 +46,7 @@ export default function TableCasesData(props: any) {
     // eslint-disable-next-line
   }, [unstated.code])
   return (
+    // table for the left side bat
     <table className="table table-sm table-dark table-striped" style={{ fontSize: "9px", fontWeight: 'bold' }} >
       <thead>
         <tr>

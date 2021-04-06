@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
-// import { useParams, useHistory } from 'react-router-dom';
 import BarChart from '../Charts/BarChart';
 import LinearChart from '../Charts/LinearChart';
 import moment from 'moment';
 import { StoreContainer } from '../Store';
-// import ListCountries from '../modules/ListCountries';
 import Dashboard from '../Charts/Dashboard';
 import Flag from '../modules/Flag';
 import SelectCase from '../Charts/SelectCase';
 import SelectPeriod from '../Charts/SelectPeriod';
 import SortCountries from '../modules/SortCountries';
 import TableCasesData from '../modules/TableCasesData';
+// import ListCountries from '../modules/ListCountries';
+// import { useParams, useHistory } from 'react-router-dom';
 
 import _ from 'lodash';
 import '../../App.css'
@@ -42,6 +42,10 @@ export default function HomeComponent() {
     setY(infos?.resultCases)
   }
 
+  /**
+   * function getCovidData to get all covid world info(infected, cured, deaths)
+   * @returns res : array of results of all infected
+   */
   function getCovidData() {
     try {
       fetch(`https://api.covid19api.com/summary`, {
@@ -57,16 +61,25 @@ export default function HomeComponent() {
     }
   };
 
+  /**
+   * function getAll : to get the total of all data in the store
+   */
   async function getAll() {
     await unstated.getTotal();
   }
 
-
+/**
+ * function to set Country and contry code to the store
+ * @param event 
+ */
   function handleClick(event: any) {
     unstated.setCountry(event.currentTarget.dataset.name.toLowerCase());
     unstated.setCode(event.currentTarget.dataset.code.toLowerCase());
   }
 
+  /**
+   * allow to modify data choosen on click, (when you change the country)
+   */
   React.useEffect(() => {
     setCountries(unstated.country_list);
     if (unstated.code) {
@@ -101,20 +114,21 @@ export default function HomeComponent() {
 
       <header>
       </header>
+
+      {/* left side bar component - countries list*/}
       <aside className="sidebar">
         <div className="field" style={{ position: "sticky", top: "0rem", zIndex: 100, backgroundColor: '#333' }}>
           <div className="control has-icons-left" style={{ position: 'sticky' }} >
             <span style={{ display: 'flex', flexDirection: 'column' }}>
-              {/* <input type="text" className="input  is-fullwidth mt-1" value={unstated.country} onChange={e => unstated.setCountry((e.target.value).toLowerCase())} placeholder='Search a country' />
-              {unstated.country ? <span className="icon is-small is-left" onClick={() => { unstated.setCountry(""); unstated.setCode(""); }}>
-                <i className="delete"></i>
-              </span> : <></>} */}
+              
+              {/* Select type of cases and period */}
               <SelectCase setCases={setCases} className="is-fullwidth" />
               <SelectPeriod setDates={setDates} className="is-fullwidth" />
             </span>
           </div>
         </div>
 
+        {/* display list of country order by most infected */}
         <h3 className="mt-1">Countries </h3>
         {!_.isEmpty(unstated.code) && !_.isEmpty(unstated.country) ?
           <TableCasesData />
@@ -131,14 +145,14 @@ export default function HomeComponent() {
         </span>) : ""}
       </aside>
 
+      {/* main component */}
       <section className="main">
         <Dashboard data={unstated.total ? unstated.total : (data ? data : {})} />
         <div className="sticky-top">
           <div className="nav flex-column">
+            {/* component of charts by country selected */}
             {unstated.code ?
-              <span>
-                <LinearChart dataCountry={unstated.data} labelsCountry={unstated.labels} country={`${unstated.code.toUpperCase()}`} />
-              </span>
+              <span><LinearChart dataCountry={unstated.data} labelsCountry={unstated.labels} country={`${unstated.code.toUpperCase()}`} /></span>
               : <></>}
             {data ?
               <BarChart dataCountry={Y} labelsCountry={X} country={date} />

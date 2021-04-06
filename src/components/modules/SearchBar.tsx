@@ -1,24 +1,3 @@
-// import React from 'react'
-// import { StoreContainer } from '../Store';
-// import TextField from '@material-ui/core/TextField';
-// import Autocomplete from '@material-ui/lab/Autocomplete';
-
-// export default function SearchBar(props: any) {
-//   const unstated = StoreContainer.useContainer();
-//   let textRef = React.useRef();
-//   return (
-//     <span className="d-none d-lg-block">
-//       <Autocomplete
-//         options={unstated.country_list}
-//         getOptionLabel={(option) => option.name}
-//         style={{ maxWidth: '300', backgroundColor: 'white', borderRadius: 5 }}
-//         renderInput={(params) => <TextField {...params} label="search a country ?" variant="outlined" inputRef={textRef} onChange={() => console.log(textRef)} />}
-//       />
-//     </span>
-//   )
-// }
-
-
 /* eslint-disable no-use-before-define */
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
@@ -37,7 +16,9 @@ function countryToFlag(isoCode: any) {
 }
 
 
-// export default function SearchBar(props: any) {
+/**
+ * Search bar component to select a country and display its stats in /stats url
+ */
 export default function SearchBar() {
   const unstated = StoreContainer.useContainer();
   let textInput = "";
