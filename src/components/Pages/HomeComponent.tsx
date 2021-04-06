@@ -115,20 +115,16 @@ export default function HomeComponent() {
       <header>
       </header>
 
-      {/* left side bar component - countries list*/}
       <aside className="sidebar">
         <div className="field" style={{ position: "sticky", top: "0rem", zIndex: 100, backgroundColor: '#333' }}>
           <div className="control has-icons-left" style={{ position: 'sticky' }} >
             <span style={{ display: 'flex', flexDirection: 'column' }}>
-              
-              {/* Select type of cases and period */}
               <SelectCase setCases={setCases} className="is-fullwidth" />
               <SelectPeriod setDates={setDates} className="is-fullwidth" />
             </span>
           </div>
         </div>
 
-        {/* display list of country order by most infected */}
         <h3 className="mt-1">Countries </h3>
         {!_.isEmpty(unstated.code) && !_.isEmpty(unstated.country) ?
           <TableCasesData />
@@ -145,12 +141,10 @@ export default function HomeComponent() {
         </span>) : ""}
       </aside>
 
-      {/* main component */}
       <section className="main">
         <Dashboard data={unstated.total ? unstated.total : (data ? data : {})} />
         <div className="sticky-top">
           <div className="nav flex-column">
-            {/* component of charts by country selected */}
             {unstated.code ?
               <span><LinearChart dataCountry={unstated.data} labelsCountry={unstated.labels} country={`${unstated.code.toUpperCase()}`} /></span>
               : <></>}

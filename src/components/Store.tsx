@@ -153,10 +153,10 @@ export const useStore = () => {
       .catch((err) => { throw (err) })
   }
 
+  // console.log(`https://covid19-api.org/api/timeline/${country}`)
+  // console.log(`https://api.covid19api.com/country/${country}/status/${caseType}/live?from=${dateTo}&to=${moment().format('YYYY-MM-DDT00:00:00')}`)
   const getCovidCountry = async (country: string, caseType: string, dateTo: string) => {
     setCovidApi(await getCovidApi(country, caseType, dateTo));
-    // console.log(`https://covid19-api.org/api/timeline/${country}`)
-    // console.log(`https://api.covid19api.com/country/${country}/status/${caseType}/live?from=${dateTo}&to=${moment().format('YYYY-MM-DDT00:00:00')}`)
   }
 
   /**

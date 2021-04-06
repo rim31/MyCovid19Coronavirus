@@ -57,7 +57,6 @@ export default function Layout(props: any) {
         </span>
       </nav>
       {props.children}
-      {/* {React.cloneElement(props.children, { code: unstated.code, country: unstated.country })} */}
       <Box pt={4} style={{ bottom: 0, position: 'absolute', right: 0 }}>
         <Copyright />
       </Box>

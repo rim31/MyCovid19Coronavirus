@@ -56,7 +56,6 @@ export default function SearchBar() {
           size="small"
           inputProps={{
             ...params.inputProps,
-            // autoComplete: 'new-password', // disable autocomplete and autofill
           }}
           value={textInput}
         />

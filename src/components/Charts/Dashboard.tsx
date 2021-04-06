@@ -71,17 +71,6 @@ export default function Dashboard(props: any) {
           <div className="col-xl-12 col-lg-12" style={{ position: "absolute", zIndex: 100 }}>
             <div className="card card-inverse mb-0">
               <div className="card-block rounded mb-0">
-                {/* <div className="progress " style={{ height: '3px' }}>
-                  <div className="progress-bar bg-warning" role="progressbar"
-                    style={{ width: `${confirmed}%`, color: 'black' }} >{props.content.TotalConfirmed} confirmed</div>
-                  <div className="progress-bar bg-danger" role="progressbar"
-                    style={{ width: `${deaths}%`, color: 'black' }} >{props.content.TotalDeaths} deaths</div>
-                  <div className="progress-bar bg-success" role="progressbar"
-                    aria-valuenow={props.content.TotalRecovered}
-                    aria-valuemin={0}
-                    aria-valuemax={max}
-                    style={{ width: `${recovered}%`, color: 'black' }} >{props.content.TotalRecovered} recovered</div>
-                </div> */}
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly' }}>
                   <span>
                     <h6 className="mt-2 ml-2">Country : {props.content.Population} pers <PeopleOutlineIcon /> </h6>

@@ -38,17 +38,6 @@ export default function SelectPeriod(props: any) {
   }
 
   return (
-    // <div className="control" >
-    //   <select className="select" value={period} onChange={handleChange}>
-    //     <option value="last month" >last month</option>
-    //     <option value="last week" >last week</option>
-    //     <option value="last week" >last 2 weeks</option>
-    //     <option value="last 2 months" >last 2 months</option>
-    //     <option value="last 6 months" >last 4 months</option>
-    //     <option value="last 6 months" >last 6 months</option>
-    //     <option value="since January 2020" >since January 2020</option>
-    //   </select>
-    // </div >
     <>
       <InputLabel className="pt-2 pb-0 mb-0" style={{ color: "white" }}>Period</InputLabel>
       <Select

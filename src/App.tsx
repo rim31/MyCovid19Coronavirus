@@ -15,7 +15,6 @@ function App() {
             <Route exact path={'/covid19'} component={MapComponent} />
             <Route exact path={'/stats'} component={HomeComponent} />
             <Route exact path={'/covid19/stats'} component={HomeComponent} />
-            {/* <Route exact path={'/graph/:country?'} component={GraphComponent} /> */}
             <Route path={'*'} ><NotFound /></Route>
           </Switch>
         </Layout>
@@ -23,6 +22,7 @@ function App() {
     </Router>
   );
 }
+{/* <Route exact path={'/graph/:country?'} component={GraphComponent} /> */}
 
 function NotFound() {
   return (

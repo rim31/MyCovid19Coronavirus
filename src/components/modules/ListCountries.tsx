@@ -61,13 +61,11 @@ export default function ListCountries(props: any) {
       }}>
       <h1 style={{ color: 'whitesmoke' }}>
         {!_.isEmpty(unstated.code) && !_.isEmpty(unstated.country) ?
-          // <img src={`https://www.countryflags.io/${code}/flat/64.png`} alt={`${country}`} />
           <TableCasesData />
           : ""}
         <span>{Flag(unstated.code ? unstated.code : code)}</span>
         {!_.isEmpty(unstated.country) ? unstated.country : country}
       </h1>
-      {/* {(_.isEmpty(props.data) === false) ? */}
       {!_.isEmpty(props.data.Countries) ?
         props.data.Countries.map((item: any, i: any) =>
           <span className="button is-secondary is-fullwidth"

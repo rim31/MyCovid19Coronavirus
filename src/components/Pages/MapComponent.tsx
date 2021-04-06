@@ -47,11 +47,9 @@ export default function HomeComponent() {
       </aside>
 
       <section className="main">
-        {/* component with the info of world data infection */}
         <Dashboard data={unstated.total ? unstated.total : (data ? data : {})}
           content={content ? content : ''}
         />
-        {/* component with the map */}
         <MapChart setTooltipContent={setContent} />
         <div className="sticky-top">
           <div className="nav flex-column">

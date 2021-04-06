@@ -9,13 +9,6 @@ export default function SelectCase(props: any) {
   }
 
   return (
-    // <div className="control" >
-    //   <select className="select is-primary" value={props.cases} onChange={handleChange}>
-    //     <option value="confirmed">confirmed</option>
-    //     <option value="deaths">deaths</option>
-    //     <option value="recovered">recovered</option>
-    //   </select>
-    // </div >
     <>
       <InputLabel className="pt-2 pb-0 mb-0" style={{ color: "white" }}>Cases</InputLabel>
       <Select

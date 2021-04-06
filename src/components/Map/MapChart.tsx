@@ -52,7 +52,6 @@ const MapChart = (props: any) => {
         rotate: [-10, 0, 0],
         scale: 200
       }}
-    // style={{ marginTop: '-5em' }}
     >
       <ZoomableGroup zoom={1}>
         <Geographies geography={geoUrl}>
@@ -67,7 +66,6 @@ const MapChart = (props: any) => {
                   let { NAME, POP_EST, ISO_A2 } = geo.properties;
                   let country: object | any = _.find((unstated.markers), { CountryCode: ISO_A2 });
                   if (country) {
-                    // cases = country.TotalConfirmed;
                     props.setTooltipContent({
                       Country: NAME,
                       Population: POP_EST,
@@ -90,7 +88,6 @@ const MapChart = (props: any) => {
                   let { NAME, ISO_A2 } = geo.properties;
                   unstated.setCode(ISO_A2.toLowerCase());
                   unstated.setCountry(NAME.toLowerCase());
-                  // console.log("mapCharts : code ", unstated.code);
                 }}
 
                 style={{
@@ -179,7 +176,6 @@ const MapChart = (props: any) => {
                     onClick={() => {
                       unstated.setCode(item.CountryCode.toLowerCase());
                       unstated.setCountry(item.Country.toLowerCase());
-                      // console.log("mapCharts : code ", unstated.code);
                     }}
                   >
                     {
