@@ -22,7 +22,6 @@ function App() {
     </Router>
   );
 }
-{/* <Route exact path={'/graph/:country?'} component={GraphComponent} /> */}
 
 function NotFound() {
   return (

@@ -86,8 +86,8 @@ const MapChart = (props: any) => {
                 }}
                 onClick={() => {
                   let { NAME, ISO_A2 } = geo.properties;
-                  unstated.setCode(ISO_A2.toLowerCase());
-                  unstated.setCountry(NAME.toLowerCase());
+                  unstated.setCode(ISO_A2.toUpperCase());
+                  unstated.setCountry(NAME.toUpperCase());
                 }}
 
                 style={{
@@ -112,7 +112,7 @@ const MapChart = (props: any) => {
           (_.filter(unstated.markers, (o: any) => o.CountryCode === unstated.code || o.TotalConfirmed > maxMarkers))
             .map((item: any) => (
               <Marker key={item.name} coordinates={[item.lon, item.lat]}>
-                {item.CountryCode.toLowerCase() === unstated.code.toLowerCase() ?
+                {item.CountryCode.toUpperCase() === unstated.code.toUpperCase() ?
                   <g
                     fill="none"
                     stroke="#ff0000"
@@ -141,7 +141,7 @@ const MapChart = (props: any) => {
                   </>
                 }
 
-                {item.CountryCode.toLowerCase() === unstated.code.toLowerCase() ?
+                {item.CountryCode.toUpperCase() === unstated.code.toUpperCase() ?
                   <text
                     textAnchor="middle"
                     style={{ fill: "red", fontWeight: "bold", textShadow: "1px 1px 1px black", fontSize: "15px" , cursor: "default", zIndex:-10}}
@@ -174,8 +174,8 @@ const MapChart = (props: any) => {
                       props.setTooltipContent("");
                     }}
                     onClick={() => {
-                      unstated.setCode(item.CountryCode.toLowerCase());
-                      unstated.setCountry(item.Country.toLowerCase());
+                      unstated.setCode(item.CountryCode.toUpperCase());
+                      unstated.setCountry(item.Country.toUpperCase());
                     }}
                   >
                     {

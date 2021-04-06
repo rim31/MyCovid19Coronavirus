@@ -12,7 +12,7 @@ export default function ListCountries(props: any) {
 
 
   function handleClick(event: any) {
-    const value = event.currentTarget.dataset.name.toLowerCase();
+    const value = event.currentTarget.dataset.name.toUpperCase();
     // console.log(value)
     setCountry(value);
     setCode(event.currentTarget.dataset.code.toUpperCase());
