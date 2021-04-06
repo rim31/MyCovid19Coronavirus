@@ -37,10 +37,10 @@ export default function Layout(props: any) {
           <h3 style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }}>Covid-19</h3>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/" >Map</Link>
+              <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/covid19" >Map</Link>
             </li>
             <li className="nav-item">
-              <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/stats">Stats</Link>
+              <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/covid19/stats">Stats</Link>
             </li>
             <li>
               <SearchBar />
@@ -48,8 +48,8 @@ export default function Layout(props: any) {
           </ul>
         </div>
         <span className="d-none d-lg-block" style={{ display: "flex", flexWrap: "wrap", justifyContent: "flex-start" }}>
-          <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/" >Map</Link>
-          <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/stats">Stats</Link>
+          <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/covid19" >Map</Link>
+          <Link style={{ color: 'white', textDecoration: 'inherit', paddingLeft: '15px' }} to="/covid19/stats">Stats</Link>
         </span>
         <h1 style={{ color: "white", fontWeight: "bold" }}>COVID-19</h1>
         <span className="d-none d-lg-block">
