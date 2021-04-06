@@ -105,10 +105,10 @@ export default function HomeComponent() {
         <div className="field" style={{ position: "sticky", top: "0rem", zIndex: 100, backgroundColor: '#333' }}>
           <div className="control has-icons-left" style={{ position: 'sticky' }} >
             <span style={{ display: 'flex', flexDirection: 'column' }}>
-              <input type="text" className="input  is-fullwidth mt-1" value={unstated.country} onChange={e => unstated.setCountry((e.target.value).toLowerCase())} placeholder='Search a country' />
+              {/* <input type="text" className="input  is-fullwidth mt-1" value={unstated.country} onChange={e => unstated.setCountry((e.target.value).toLowerCase())} placeholder='Search a country' />
               {unstated.country ? <span className="icon is-small is-left" onClick={() => { unstated.setCountry(""); unstated.setCode(""); }}>
                 <i className="delete"></i>
-              </span> : <></>}
+              </span> : <></>} */}
               <SelectCase setCases={setCases} className="is-fullwidth" />
               <SelectPeriod setDates={setDates} className="is-fullwidth" />
             </span>
