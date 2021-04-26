@@ -1,13 +1,14 @@
 import React from "react";
 import { StoreContainer } from '../Store';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
-  ZoomableGroup
+  ZoomableGroup,
 } from "react-simple-maps";
 
 interface IMarkers {
@@ -88,6 +89,7 @@ const MapChart = (props: any) => {
                   let { NAME, ISO_A2 } = geo.properties;
                   unstated.setCode(ISO_A2.toUpperCase());
                   unstated.setCountry(NAME.toUpperCase());
+
                 }}
 
                 style={{
@@ -142,45 +144,51 @@ const MapChart = (props: any) => {
                 }
 
                 {item.CountryCode.toUpperCase() === unstated.code.toUpperCase() ?
-                  <text
-                    textAnchor="middle"
-                    style={{ fill: "red", fontWeight: "bold", textShadow: "1px 1px 1px black", fontSize: "15px" , cursor: "default", zIndex:-10}}
-                  >
-                    {item.CountryCode} : {item.TotalConfirmed} cases
-                </text>
-                  : <text
-                    textAnchor="middle"
-                    style={{ fill: "orange", textShadow: "1px 1px 1px black", fontWeight: "bold", fontSize: "10px", cursor: "default", zIndex:-10 }}
-                    onMouseEnter={() => {
-                      let country: object | any = _.find((unstated.markers), { CountryCode: item.CountryCode });
-                      if (country) {
-                        // cases = country.TotalConfirmed;
-                        props.setTooltipContent({
-                          Country: item.Country,
-                          Population: '',
-                          NewConfirmed: country.NewConfirmed,
-                          TotalConfirmed: country.TotalConfirmed,
-                          NewDeaths: country.NewDeaths,
-                          TotalDeaths: country.TotalDeaths,
-                          NewRecovered: country.NewRecovered,
-                          TotalRecovered: country.TotalRecovered,
-                          data: country
-                        });
-                      } else {
-                        props.setTooltipContent({ Country: item.Country });
-                      }
-                    }}
-                    onMouseLeave={() => {
-                      props.setTooltipContent("");
-                    }}
-                    onClick={() => {
-                      unstated.setCode(item.CountryCode.toUpperCase());
-                      unstated.setCountry(item.Country.toUpperCase());
-                    }}
-                  >
-                    {
-                      item.TotalConfirmed > maxMarkers ? `${item.CountryCode} ${item.TotalConfirmed}` : ""}
-                  </text>
+                  <>
+                    <text
+                      textAnchor="middle"
+                      style={{ fill: "red", fontWeight: "bold", textShadow: "1px 1px 1px black", fontSize: "15px", cursor: "default", zIndex: -10 }}
+                    >
+                      {/*  eslint-disable-next-line */}
+                      <Link to="/covid19/stats">📈 Details - {item.CountryCode} : {item.TotalConfirmed}cases
+                        </Link>
+                    </text>
+                  </>
+                  :
+                  <>
+                    <text
+                      textAnchor="middle"
+                      style={{ fill: "orange", textShadow: "1px 1px 1px black", fontWeight: "bold", fontSize: "10px", cursor: "default", zIndex: -10 }}
+                      onMouseEnter={() => {
+                        let country: object | any = _.find((unstated.markers), { CountryCode: item.CountryCode });
+                        if (country) {
+                          // cases = country.TotalConfirmed;
+                          props.setTooltipContent({
+                            Country: item.Country,
+                            Population: '',
+                            NewConfirmed: country.NewConfirmed,
+                            TotalConfirmed: country.TotalConfirmed,
+                            NewDeaths: country.NewDeaths,
+                            TotalDeaths: country.TotalDeaths,
+                            NewRecovered: country.NewRecovered,
+                            TotalRecovered: country.TotalRecovered,
+                            data: country
+                          });
+                        } else {
+                          props.setTooltipContent({ Country: item.Country });
+                        }
+                      }}
+                      onMouseLeave={() => {
+                        props.setTooltipContent("");
+                      }}
+                      onClick={() => {
+                        unstated.setCode(item.CountryCode.toUpperCase());
+                        unstated.setCountry(item.Country.toUpperCase());
+                      }}
+                    >
+                      {item.TotalConfirmed > maxMarkers ? `${item.CountryCode} ${item.TotalConfirmed}` : ""}
+                    </text>
+                  </>
                 }
               </Marker >
             )) : ""
