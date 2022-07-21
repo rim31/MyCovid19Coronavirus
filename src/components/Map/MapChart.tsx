@@ -2,7 +2,7 @@ import React from "react";
 import { StoreContainer } from '../Store';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
-
+import Map from "./map.json"
 import {
   ComposableMap,
   Geographies,
@@ -17,9 +17,9 @@ interface IMarkers {
   lon: number,
   lat: number
 }
-const geoUrl: string =
+const geoUrl: any = Map;
   // "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json"; // old url crash : https://github.com/zcreativelabs/react-simple-maps/issues/289
-  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/v2/topojson-maps/world-110m.json";
+  // "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/v2/topojson-maps/world-110m.json"; /////// OK but if the owner change the url again , don't know what will happen
 
 const MapChart = (props: any) => {
   const unstated = StoreContainer.useContainer();
