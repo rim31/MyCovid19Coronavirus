@@ -18,7 +18,8 @@ interface IMarkers {
   lat: number
 }
 const geoUrl: string =
-  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
+  // "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json"; // old url crash : https://github.com/zcreativelabs/react-simple-maps/issues/289
+  "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/v2/topojson-maps/world-110m.json";
 
 const MapChart = (props: any) => {
   const unstated = StoreContainer.useContainer();
